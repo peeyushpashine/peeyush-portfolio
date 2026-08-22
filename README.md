@@ -55,3 +55,42 @@ around it is what makes it land.
 
 Responsive to mobile, visible keyboard focus rings, reduced motion respected,
 semantic landmarks, static prerender.
+
+## Writing
+
+Articles are markdown files in `content/articles/`. Adding one is the whole
+workflow: drop in a `.md` file, push, done. No component changes.
+
+```markdown
+---
+title: "Your title"
+standfirst: "One sentence that makes someone want to read it."
+date: "2026-09-05"
+originallyAt: "LinkedIn"          # optional
+originallyUrl: "https://..."      # optional
+draft: true                        # optional, hides it everywhere
+---
+
+Body starts here.
+```
+
+The filename becomes the URL: `my-article.md` serves at `/writing/my-article`.
+
+Reading time is computed from word count. Sorting is by date, newest first.
+Anything marked `draft: true` is excluded from the index, the sitemap and
+static generation, so you can commit work in progress safely.
+
+### Images inside an article
+
+Put them in `public/diagrams/` and reference with a root-relative path:
+
+```markdown
+![Alt text that describes the argument](/diagrams/your-image.png)
+```
+
+### Before you deploy
+
+`content/articles/where-does-an-engineer-add-value.md` has a placeholder in
+its frontmatter: replace `REPLACE_WITH_YOUR_LINKEDIN_URL` with the real
+article URL. And export the two diagrams into `public/diagrams/` (see the
+README in that folder).

@@ -1,10 +1,12 @@
 import Rail from "@/components/Rail";
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
+import Writing from "@/components/Writing";
 import { person } from "@/lib/content";
 
 const NAV = [
   { id: "top", label: "Overview" },
+  { id: "writing", label: "Writing" },
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
@@ -16,6 +18,7 @@ export default function Page() {
 
       <main className="pb-28 lg:pb-40">
         <Hero />
+        <Writing />
         <Experience />
 
         <section id="contact" className="scroll-mt-16 pt-24 lg:pt-28">
