@@ -64,14 +64,13 @@ export default async function ArticlePage({
 
         {article.originallyAt && article.originallyUrl && (
           <p className="eyebrow mt-20 border-t border-rule pt-6">
-            First published on{" "}
             <a
-              className="text-signal underline-offset-4 hover:underline"
+              className="text-signal underline decoration-signal/40 underline-offset-4 hover:decoration-signal"
               href={article.originallyUrl}
               target="_blank"
               rel="noreferrer"
             >
-              {article.originallyAt}
+              First published on {article.originallyAt} &#8599;
             </a>
           </p>
         )}
