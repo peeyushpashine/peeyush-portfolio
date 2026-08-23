@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticle, getArticles, formatDate } from "@/lib/articles";
 import { person } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return getArticles().map((a) => ({ slug: a.slug }));
@@ -19,6 +20,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — ${person.name}`,
     description: article.standfirst,
+    alternates: { canonical: `/writing/${slug}` },
     openGraph: {
       title: article.title,
       description: article.standfirst,
@@ -44,6 +46,21 @@ export default async function ArticlePage({
           ← {person.name}
         </Link>
       </nav>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: article.title,
+            description: article.standfirst,
+            datePublished: article.date,
+            author: { "@type": "Person", name: person.name, url: SITE_URL },
+            mainEntityOfPage: `${SITE_URL}/writing/${article.slug}`,
+          }),
+        }}
+      />
 
       <article className="pt-14">
         <header>

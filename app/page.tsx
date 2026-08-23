@@ -2,10 +2,15 @@ import Rail from "@/components/Rail";
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
 import Writing from "@/components/Writing";
+import Work from "@/components/Work";
+import Research from "@/components/Research";
+import Closing from "@/components/Closing";
 import { person } from "@/lib/content";
 
 const NAV = [
   { id: "top", label: "Overview" },
+  { id: "work", label: "Selected work" },
+  { id: "research", label: "Patents & papers" },
   { id: "writing", label: "Writing" },
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
@@ -18,6 +23,8 @@ export default function Page() {
 
       <main className="pb-28 lg:pb-40">
         <Hero />
+        <Work />
+        <Research />
         <Writing />
         <Experience />
 
@@ -42,6 +49,7 @@ export default function Page() {
               GitHub
             </a>
           </div>
+          <Closing />
           <p className="eyebrow mt-16 border-t border-rule pt-6">{person.location}</p>
         </section>
       </main>

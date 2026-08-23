@@ -94,3 +94,34 @@ Put them in `public/diagrams/` and reference with a root-relative path:
 its frontmatter: replace `REPLACE_WITH_YOUR_LINKEDIN_URL` with the real
 article URL. And export the two diagrams into `public/diagrams/` (see the
 README in that folder).
+
+## Reach layer
+
+Everything below is already wired and needs no maintenance.
+
+- **OG images** generated at build time from `app/opengraph-image.tsx` (home) and
+  `app/writing/[slug]/opengraph-image.tsx` (per article). Every future article
+  gets a card automatically. This is what LinkedIn and Twitter render when you
+  paste a link.
+- **JSON-LD**: Person schema sitewide, BlogPosting per article. This is what
+  makes a search for your name resolve correctly.
+- **`/sitemap.xml`, `/robots.txt`, `/feed.xml`** all generated from content.
+- **Canonical URLs** on every page.
+
+### When the custom domain lands
+
+Change one line in `lib/site.ts`, or set `NEXT_PUBLIC_SITE_URL` in Vercel's
+environment variables. Sitemap, RSS, canonical tags and OG metadata all follow.
+
+### After deploying
+
+Paste your URL into these to confirm the cards render:
+- https://www.opengraph.xyz
+- https://cards-dev.twitter.com/validator
+- https://search.google.com/test/rich-results (for the JSON-LD)
+
+### Resume PDF
+
+Drop your PDF at `public/peeyush-pashine-resume.pdf` and it serves at
+`/peeyush-pashine-resume.pdf`. Nothing links to it yet, by design: see the
+note in the session 2 handover.
