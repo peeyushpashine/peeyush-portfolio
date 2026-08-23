@@ -21,6 +21,27 @@ export const facts = [
   { value: "4", label: "papers" },
 ];
 
+export type Milestone = {
+  /** Four digit year. */
+  year: string;
+  /** 1-12. Optional; defaults to mid-year so a year-only entry still lands sensibly. */
+  month?: number;
+  /** Shown in bold in the panel. Keep it under about six words. */
+  label: string;
+  /** One or two sentences. This is the whole point of the marker. */
+  detail: string;
+  /** Optional, shown next to the date. */
+  org?: string;
+};
+
+/**
+ * Extra marks on the journey lane, on top of the automatic one per role start.
+ * Clicking any mark shows its detail below the lane. Keep these to things worth
+ * stopping on: shipped systems, talks, grants, awards. Ten to fifteen is plenty
+ * across thirteen years; more than that and the lane stops reading as a rhythm.
+ */
+export const milestones: Milestone[] = [];
+
 /** The right edge of the journey lane. Bump this in January. */
 export const presentYear = 2026;
 
