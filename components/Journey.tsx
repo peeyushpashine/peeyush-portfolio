@@ -24,8 +24,14 @@ const COUNT = SPAN_YEARS * 12;
 const toIndex = (year: number, month = 6) =>
   (year - START_YEAR) * 12 + Math.min(Math.max(month, 1), 12) - 1;
 
+/** Prefer the "YYYY-MM" start where a role has one, so marks land on the real month. */
+const roleIndex = (r: (typeof roles)[number]) => {
+  const [y, m] = (r.start ?? `${r.from}-01`).split("-");
+  return toIndex(Number(y), Number(m));
+};
+
 const fromRoles: Mark[] = roles.map((r) => ({
-  index: toIndex(Number(r.from), 1),
+  index: roleIndex(r),
   date: `${r.from} to ${r.to}`,
   label: r.title,
   detail: r.note,

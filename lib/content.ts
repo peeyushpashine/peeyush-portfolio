@@ -40,7 +40,16 @@ export type Milestone = {
  * stopping on: shipped systems, talks, grants, awards. Ten to fifteen is plenty
  * across thirteen years; more than that and the lane stops reading as a rhythm.
  */
-export const milestones: Milestone[] = [];
+export const milestones: Milestone[] = [
+  {
+    year: "2017",
+    month: 11,
+    label: "Mitra at the Global Entrepreneurship Summit",
+    detail:
+      "Advised Invento Robotics on Mitra, the humanoid robot that greeted the Prime Minister of India and Ivanka Trump at GES 2017 in Hyderabad.",
+    org: "Invento Robotics",
+  },
+];
 
 /** The right edge of the journey lane. Bump this in January. */
 export const presentYear = 2026;
@@ -50,6 +59,8 @@ export type Role = {
   title: string;
   from: string;
   to: string;
+  /** "YYYY-MM" start, used to place the mark on the journey lane. Falls back to `from`. */
+  start?: string;
   note: string;
 };
 
@@ -57,27 +68,23 @@ export const roles: Role[] = [
   {
     org: "Atlassian",
     title: "Lead ML Engineer",
+    start: "2024-07",
     from: "2024",
     to: "Present",
     note: "Took Signal and Noise alert classification from zero to GA. Designed multi-agent orchestration for Rovo Ops Agent and multi-tenant training orchestration for the ML platform.",
   },
   {
-    org: "Walmart Labs",
+    org: "Walmart Global Tech",
     title: "Staff Machine Learning Engineer",
-    from: "2023",
-    to: "2024",
-    note: "Led a team of four MLEs at Walmart Data Ventures. Standardised MLOps practice across verticals and cut deployment times.",
-  },
-  {
-    org: "Walmart Labs",
-    title: "Senior Machine Learning Engineer",
     from: "2021",
-    to: "2023",
-    note: "Built the supplier insights ML pipeline: per-tenant models over 20TB+ of training data, serving 100+ suppliers.",
+    to: "2024",
+    start: "2021-08",
+    note: "Led a four person ML engineering horizontal, standardising and automating the pipeline artifacts other data science teams built on, which halved ML deployment time. Built the supplier insights product end to end: per-tenant models over 20TB+ of training data serving 100+ suppliers.",
   },
   {
     org: "PwC Labs",
     title: "Senior Data Scientist",
+    start: "2020-03",
     from: "2020",
     to: "2021",
     note: "Document extraction for finance, using TensorFlow, OpenCV and MaskRCNN, deployed on Kubeflow and KFServing.",
@@ -85,6 +92,7 @@ export const roles: Role[] = [
   {
     org: "Software AG",
     title: "Data Scientist and DevOps Engineer",
+    start: "2018-03",
     from: "2018",
     to: "2020",
     note: "Consulting across images, NLP and tabular data for clients in India and Europe. Built a no-code data science tool with a team of five.",
@@ -92,6 +100,7 @@ export const roles: Role[] = [
   {
     org: "MathWorks",
     title: "Senior Software Engineer",
+    start: "2013-04",
     from: "2013",
     to: "2018",
     note: "Software stack and auto code generation architecture for Simulink across TI, STM32 and Raspberry Pi boards.",
