@@ -51,7 +51,11 @@ export default function Research() {
                   ) : (
                     <span className="font-medium">{p.title}</span>
                   )}
-                  <span className="eyebrow ml-2 tabular-nums">{p.venue}, {p.year}</span>
+                  <span className="eyebrow ml-2 tabular-nums">
+                    {p.venue}
+                    {p.year ? `, ${p.year}` : ""}
+                    {p.status ? ` · ${p.status}` : ""}
+                  </span>
                 </li>
               ))}
             </ul>

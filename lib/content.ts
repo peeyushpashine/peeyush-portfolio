@@ -18,7 +18,7 @@ export const person = {
 export const facts = [
   { value: "12+", label: "years" },
   { value: "7", label: "patents filed" },
-  { value: "3", label: "publications" },
+  { value: "4", label: "papers" },
 ];
 
 export type Role = {
@@ -140,18 +140,35 @@ export const patents: Patent[] = [
   },
 ];
 
-export type Publication = { title: string; venue: string; year: string; href?: string };
+export type Publication = { title: string; venue: string; year?: string; status?: string; href?: string };
 
 export const publications: Publication[] = [
   {
     title: "Scalable AI-based personalised SmartInsights system",
-    venue: "Asian Machine Learning Conference",
+    venue: "ACML",
     year: "2022",
+    status: "Submitted",
   },
   {
-    title: "No-Qualms: a scalable MLOps and quality framework",
-    venue: "Quality framework for data science products at scale",
+    title:
+      "No-QUALMS: a novel quality assurance, enhancement and MLOps framework for data science modelling at scale",
+    venue: "ACML",
     year: "2023",
+    status: "Submitted",
+    href: "/papers/no-qualms.pdf",
+  },
+  {
+    title: "Scalable modularised MLOps with quality framework",
+    venue: "AIMLSystems",
+    year: "2023",
+    status: "Submitted",
+    href: "/papers/scalable-modularised-mlops.pdf",
+  },
+  {
+    title: "Intuitionist: horizontal unified data science code generation templates kit",
+    venue: "Walmart Global Tech",
+    status: "Internal paper",
+    href: "/papers/intuitionist.pdf",
   },
 ];
 
