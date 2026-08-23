@@ -49,10 +49,75 @@ export const milestones: Milestone[] = [
       "Advised Invento Robotics on Mitra, the humanoid robot that greeted the Prime Minister of India and Ivanka Trump at GES 2017 in Hyderabad.",
     org: "Invento Robotics",
   },
+  {
+    year: "2022",
+    month: 6,
+    label: "Excellence Award",
+    detail:
+      "For the end to end ML pipeline behind the supplier insights product launch.",
+    org: "Walmart Global Tech",
+  },
+  {
+    year: "2025",
+    month: 1,
+    label: "Alert Grouping in production",
+    detail:
+      "Shipped ML and GenAI alert grouping for Jira Service Management, one of the platform's first large scale multi-tenant ML workflows and the foundation later iterations were built on.",
+    org: "Atlassian",
+  },
+  {
+    year: "2025",
+    month: 9,
+    label: "First AIOps patent filed",
+    detail:
+      "The start of a run of filings on alert classification, model explainability and feedback driven model improvement.",
+    org: "Atlassian",
+  },
+  {
+    year: "2025",
+    month: 12,
+    label: "Big Kudos Award",
+    detail:
+      "For taking Signal and Noise from zero to one. The work was highlighted in a company keynote.",
+    org: "Atlassian",
+  },
+  {
+    year: "2026",
+    month: 1,
+    label: "Signal and Noise reaches GA",
+    detail:
+      "The alert classifier went from hypothesis to general availability: weak supervision into gradient boosting, SHAP explanations, per-tenant models and a feedback loop that improves the model in place.",
+    org: "Atlassian",
+  },
+  {
+    year: "2026",
+    month: 2,
+    label: "Multi-tenant training orchestration",
+    detail:
+      "Per-tenant right sizing, region aware scheduling and pipeline tuning took training cost down by around two thirds while staying OOM-free at production scale.",
+    org: "Atlassian",
+  },
+  {
+    year: "2026",
+    month: 3,
+    label: "Rovo evaluation framework",
+    detail:
+      "A layered LLM eval framework with golden datasets, LLM-as-judge and out-of-domain guardrails. Skill evaluation became a practice adopted across AIOps.",
+    org: "Atlassian",
+  },
+  {
+    year: "2026",
+    month: 6,
+    label: "Conversational root cause analysis",
+    detail:
+      "Agentic root cause skills over metrics, events, logs and traces, returning ranked likely causes in seconds.",
+    org: "Atlassian",
+  },
 ];
 
-/** The right edge of the journey lane. Bump this in January. */
+/** The right edge of the journey lane: the current month. Bump this as it moves. */
 export const presentYear = 2026;
+export const presentMonth = 8;
 
 export type Role = {
   org: string;
