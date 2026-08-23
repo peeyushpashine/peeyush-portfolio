@@ -152,6 +152,7 @@ export const publications: Publication[] = [
     title: "No-Qualms: a scalable MLOps and quality framework",
     venue: "Quality framework for data science products at scale",
     year: "2023",
+    href: "/papers/no-qualms-mlops-framework.pdf",
   },
 ];
 
