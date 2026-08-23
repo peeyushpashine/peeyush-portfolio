@@ -21,6 +21,9 @@ export const facts = [
   { value: "4", label: "papers" },
 ];
 
+/** The right edge of the journey lane. Bump this in January. */
+export const presentYear = 2026;
+
 export type Role = {
   org: string;
   title: string;

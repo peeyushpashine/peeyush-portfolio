@@ -34,8 +34,7 @@ export default function Page() {
             Contact
           </h2>
           <p className="max-w-xl text-lg leading-relaxed">
-            Best reached by email. I am happy to talk about production ML systems,
-            alert classification, or agent architectures that have to survive an
+            Best reached by email. I am happy to talk about LLMs, Inference Optimizations, all things ML and data science, production ML systems and design patterns for AI usecases on scalable infrastructure, pipelines and ML systems for enterprise codebases and applications, or agent architectures that have to survive an
             enterprise codebase.
           </p>
           <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm">

@@ -1,5 +1,5 @@
 import { facts, person } from "@/lib/content";
-import SignalLane from "./SignalLane";
+import Journey from "./Journey";
 
 export default function Hero() {
   return (
@@ -21,7 +21,7 @@ export default function Hero() {
         ))}
       </dl>
 
-      <SignalLane />
+      <Journey />
     </section>
   );
 }

@@ -41,7 +41,7 @@ Do not add a third accent colour. The two-colour discipline is the concept.
 Type: Archivo for everything, JetBrains Mono **reserved strictly for data**
 (years, counts, venues, patent numbers). If something is not data, it is not mono.
 
-**Motion budget: one element.** The alert lane in the hero (`SignalLane.tsx`) is
+**Motion budget: one element.** The journey lane in the hero (`Journey.tsx`) is
 the only animated thing on the site and respects `prefers-reduced-motion`. Adding
 a second animated element breaks the restraint that makes the first one land. Do
 not add scroll reveals, hover lifts, or gradient washes.
