@@ -7,7 +7,7 @@ export const person = {
   name: "Peeyush Pashine",
   thesis: "I build hybrid ML systems for enterprise AI.",
   summary:
-    "Lead ML Engineer at Atlassian. Production classification, multi-agent orchestration, and multi-tenant ML platform work, shipped to thousands of tenants.",
+    "Lead ML Engineer at Atlassian. Production ML model development, pipelines, multi-agent orchestration, connecting AI to business problems and finding system design patterns to build connected tech systems. Shipped to thousands of tenants.",
   location: "Bengaluru, India",
   email: "peeyushpashine@gmail.com",
   linkedin: "https://www.linkedin.com/in/peeyushpashine",
