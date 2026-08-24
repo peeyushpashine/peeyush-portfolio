@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="960" height="640" fill="#FAFAF9"/>
+
+  <text x="40" y="46" font-size="23" font-weight="600" fill="#22252A">Peak memory: 135 GB on a 32 GB driver</text>
+  <text x="40" y="72" font-size="14.5" fill="#6B7280">Not one leak. Four copies of the same frame, a dictionary nobody freed, and 75 GB of histogram buffers per tree.</text>
+
+  <!-- scale note -->
+  <text x="180" y="106" font-size="11" fill="#8A8F98">0 GB</text>
+  <text x="900" y="106" font-size="11" fill="#8A8F98" text-anchor="end">140 GB</text>
+  <line x1="180" y1="112" x2="900" y2="112" stroke="#E2E0DC" stroke-width="1"/>
+
+  <!-- 32GB limit line -->
+  <line x1="344" y1="112" x2="344" y2="300" stroke="#B4485A" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="350" y="126" font-size="11" font-weight="700" fill="#B4485A">32 GB driver</text>
+
+  <!-- BEFORE -->
+  <text x="40" y="152" font-size="12.5" font-weight="700" fill="#8C2F40">BEFORE</text>
+  <text x="40" y="170" font-size="11" fill="#8A8F98">~135 GB peak</text>
+
+  <g>
+    <rect x="180" y="132" width="118" height="46" fill="#3B6EA5"/>
+    <rect x="298" y="132" width="118" height="46" fill="#5C8AB8"/>
+    <rect x="416" y="132" width="118" height="46" fill="#B4485A"/>
+    <rect x="534" y="132" width="236" height="46" fill="#C97A86"/>
+    <rect x="770" y="132" width="52" height="46" fill="#7A8C3F"/>
+    <rect x="822" y="132" width="52" height="46" fill="#D9B25E"/>
+  </g>
+  <g font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="600">
+    <text x="239" y="152">frame</text><text x="239" y="166">23 GB</text>
+    <text x="357" y="152">copy</text><text x="357" y="166">23 GB</text>
+    <text x="475" y="152">UNUSED</text><text x="475" y="166">23 GB</text>
+    <text x="652" y="152">text frame copies &#215;2</text><text x="652" y="166">46 GB</text>
+    <text x="796" y="152">feat</text><text x="796" y="166">10</text>
+    <text x="848" y="152">tree</text><text x="848" y="166">10</text>
+  </g>
+
+  <!-- AFTER -->
+  <text x="40" y="242" font-size="12.5" font-weight="700" fill="#2F6B4F">AFTER</text>
+  <text x="40" y="260" font-size="11" fill="#8A8F98">~38 GB peak</text>
+
+  <g>
+    <rect x="180" y="222" width="118" height="46" fill="#3B6EA5"/>
+    <rect x="298" y="222" width="10" height="46" fill="#7A8C3F"/>
+    <rect x="308" y="222" width="26" height="46" fill="#2F6B4F"/>
+    <rect x="334" y="222" width="41" height="46" fill="#D9B25E"/>
+  </g>
+  <g font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="600">
+    <text x="239" y="242">frame</text><text x="239" y="256">23 GB</text>
+  </g>
+  <text x="386" y="240" font-size="10.5" fill="#4A5568">text (columns only) 2 &#183; sparse features 5 &#183; tuned trees 8</text>
+  <text x="386" y="256" font-size="11" font-weight="700" fill="#2F6B4F">in-place enrichment, dictionaries freed, sparse throughout</text>
+
+  <!-- fix list -->
+  <rect x="40" y="300" width="430" height="176" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+  <text x="58" y="324" font-size="12.5" font-weight="700" fill="#22252A">What each fix bought</text>
+  <text x="58" y="348" font-size="11.5" fill="#4A5568"><tspan font-weight="700">Delete an unread copy</tspan> assigned to an instance attribute &#8594; 23 GB</text>
+  <text x="58" y="368" font-size="11.5" fill="#4A5568"><tspan font-weight="700">Select columns, not whole frames</tspan> &#8594; 44 GB</text>
+  <text x="58" y="388" font-size="11.5" fill="#4A5568"><tspan font-weight="700">Clear the feature dicts after the JSON save</tspan> &#8594; 30 to 50 GB</text>
+  <text x="58" y="408" font-size="11.5" fill="#4A5568"><tspan font-weight="700">One-hot via sklearn, sparse float32</tspan> &#8594; ~25&#215; faster, less memory</text>
+  <text x="58" y="428" font-size="11.5" fill="#4A5568"><tspan font-weight="700">Dedup before transform</tspan> (39.4% unique) &#8594; 5-6 hrs to 10-30 min</text>
+  <text x="58" y="452" font-size="11.5" font-style="italic" fill="#8A8F98">All five were found by reading the code and asking what each</text>
+  <text x="58" y="466" font-size="11.5" font-style="italic" fill="#8A8F98">line was for. No profiler was involved in any of them.</text>
+
+  <!-- histogram arithmetic -->
+  <rect x="490" y="300" width="430" height="176" rx="9" fill="#22252A"/>
+  <text x="508" y="324" font-size="12.5" font-weight="700" fill="#F0C86A">The arithmetic that predicted the crash</text>
+  <text x="508" y="350" font-size="11.5" font-family="ui-monospace, Menlo, monospace" fill="#FFFFFF">per node = max_bin &#215; n_features &#215; 4 bytes &#215; 2</text>
+  <text x="508" y="370" font-size="11.5" font-family="ui-monospace, Menlo, monospace" fill="#C9CDD4">         = 256 &#215; 615,386 &#215; 4 &#215; 2  &#8776;  1.2 GB</text>
+  <text x="508" y="394" font-size="11.5" font-family="ui-monospace, Menlo, monospace" fill="#FFFFFF">per tree = 63 nodes &#215; 1.2 GB</text>
+  <text x="508" y="414" font-size="11.5" font-family="ui-monospace, Menlo, monospace" fill="#F0A0A8">         &#8776; 75 GB, and we asked for 100 trees</text>
+  <text x="508" y="442" font-size="11.5" fill="#C9CDD4">Four multiplications. It predicted the failure exactly, and I had</text>
+  <text x="508" y="457" font-size="11.5" fill="#C9CDD4">spent two days on tooling before doing them. Read what the</text>
+  <text x="508" y="472" font-size="11.5" font-weight="700" fill="#8FD3AC">algorithm allocates, and multiply, before you profile.</text>
+
+  <!-- the four layer fix -->
+  <rect x="40" y="494" width="880" height="128" rx="9" fill="#F1F7F3" stroke="#2F6B4F" stroke-width="1.5"/>
+  <text x="58" y="518" font-size="12.5" font-weight="700" fill="#1F4A37">75 GB per tree &#8594; ~150 MB per tree. Four layers, in order of leverage.</text>
+  <text x="58" y="542" font-size="11.5" fill="#2F6B4F"><tspan font-weight="700">1. Project down.</tspan> Sparse random projection, 615K &#8594; 150K features. Johnson-Lindenstrauss preserves the distances a</text>
+  <text x="72" y="558" font-size="11.5" fill="#2F6B4F">distance-sensitive learner needs, and it divides the dominant term by four.</text>
+  <text x="58" y="578" font-size="11.5" fill="#2F6B4F"><tspan font-weight="700">2. Free the input before the expensive phase.</tspan> Build a quantile matrix, then <tspan font-family="ui-monospace, Menlo, monospace">del X</tspan>. Ordering is a memory optimisation.</text>
+  <text x="58" y="598" font-size="11.5" fill="#2F6B4F"><tspan font-weight="700">3. Subsample columns, compounding.</tspan> 0.1 per tree &#215; 0.5 per level &#215; 0.8 per node &#8594; ~6,000 effective features per node.</text>
+  <text x="58" y="616" font-size="11.5" fill="#2F6B4F"><tspan font-weight="700">4. Shrink the histogram.</tspan> max_bin 256 &#8594; 128, depth 6 &#8594; 5, grow where the loss is instead of filling every level.</text>
+</svg>

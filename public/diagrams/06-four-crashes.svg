@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A8F98"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="640" fill="#FAFAF9"/>
+
+  <text x="40" y="46" font-size="23" font-weight="600" fill="#22252A">Watch where the crash moves. The new location names the next cause.</text>
+  <text x="40" y="72" font-size="14.5" fill="#6B7280">Four crashes, each later in the pipeline than the last. That relocation was the most useful diagnostic in the whole exercise.</text>
+
+  <!-- pipeline stages header -->
+  <g font-size="11" font-weight="700" fill="#4A5568" text-anchor="middle">
+    <text x="196" y="112">LOAD</text>
+    <text x="356" y="112">FEATURE ENGINEERING</text>
+    <text x="536" y="112">FEATURE STORE WRITE</text>
+    <text x="746" y="112">MODEL FITTING</text>
+  </g>
+  <g stroke="#E2E0DC" stroke-width="1">
+    <line x1="276" y1="120" x2="276" y2="510"/>
+    <line x1="436" y1="120" x2="436" y2="510"/>
+    <line x1="640" y1="120" x2="640" y2="510"/>
+  </g>
+
+  <!-- run 1 -->
+  <text x="40" y="152" font-size="12" font-weight="700" fill="#8C2F40">RUN 1</text>
+  <rect x="120" y="134" width="120" height="26" rx="5" fill="#3B6EA5"/>
+  <text x="180" y="151" font-size="10.5" fill="#FFFFFF" text-anchor="middle">23 GB frame</text>
+  <rect x="240" y="134" width="80" height="26" rx="5" fill="#B4485A"/>
+  <text x="280" y="151" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">&#10007;</text>
+  <text x="336" y="146" font-size="11.5" font-weight="700" fill="#8C2F40">Dies during feature engineering</text>
+  <text x="336" y="161" font-size="11" fill="#4A5568">Four copies of the same 23 GB frame. One never read by anything.</text>
+
+  <!-- run 2 -->
+  <text x="40" y="212" font-size="12" font-weight="700" fill="#8C2F40">RUN 2</text>
+  <rect x="120" y="194" width="120" height="26" rx="5" fill="#3B6EA5"/>
+  <rect x="240" y="194" width="196" height="26" rx="5" fill="#3B6EA5"/>
+  <text x="338" y="211" font-size="10.5" fill="#FFFFFF" text-anchor="middle">copies removed, one-hot vectorised</text>
+  <rect x="436" y="194" width="80" height="26" rx="5" fill="#B4485A"/>
+  <text x="476" y="211" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">&#10007;</text>
+  <text x="530" y="206" font-size="11.5" font-weight="700" fill="#8C2F40">Slow, not dead: 5-6 hours</text>
+  <text x="530" y="221" font-size="11" fill="#4A5568">Two nested iterrows() over 5.9M rows. Only 39.4% were unique.</text>
+
+  <!-- run 3 -->
+  <text x="40" y="272" font-size="12" font-weight="700" fill="#8C2F40">RUN 3</text>
+  <rect x="120" y="254" width="120" height="26" rx="5" fill="#3B6EA5"/>
+  <rect x="240" y="254" width="196" height="26" rx="5" fill="#3B6EA5"/>
+  <rect x="436" y="254" width="204" height="26" rx="5" fill="#3B6EA5"/>
+  <text x="538" y="271" font-size="10.5" fill="#FFFFFF" text-anchor="middle">vectorised + dedup first &#183; reports success</text>
+  <rect x="640" y="254" width="70" height="26" rx="5" fill="#B4485A"/>
+  <text x="675" y="271" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">&#10007;</text>
+  <text x="722" y="266" font-size="11.5" font-weight="700" fill="#8C2F40">Dies at the START of fitting</text>
+  <text x="722" y="281" font-size="11" fill="#4A5568">30-50 GB of dictionaries</text>
+  <text x="722" y="295" font-size="11" fill="#4A5568">held across the phase boundary.</text>
+
+  <!-- run 4 -->
+  <text x="40" y="342" font-size="12" font-weight="700" fill="#8C2F40">RUN 4</text>
+  <rect x="120" y="324" width="120" height="26" rx="5" fill="#3B6EA5"/>
+  <rect x="240" y="324" width="196" height="26" rx="5" fill="#3B6EA5"/>
+  <rect x="436" y="324" width="204" height="26" rx="5" fill="#3B6EA5"/>
+  <rect x="640" y="324" width="120" height="26" rx="5" fill="#3B6EA5"/>
+  <text x="700" y="341" font-size="10.5" fill="#FFFFFF" text-anchor="middle">dicts freed</text>
+  <rect x="760" y="324" width="70" height="26" rx="5" fill="#B4485A"/>
+  <text x="795" y="341" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">&#10007;</text>
+  <text x="120" y="366" font-size="11.5" font-weight="700" fill="#8C2F40">Dies INSIDE fitting, with 238 GB reported available.</text>
+  <text x="120" y="381" font-size="11" fill="#4A5568">615,386 features against a histogram tree method. ~75 GB of histogram buffers per tree, and we asked for a hundred trees.</text>
+
+  <!-- run 5 -->
+  <text x="40" y="422" font-size="12" font-weight="700" fill="#2F6B4F">RUN 5</text>
+  <rect x="120" y="404" width="120" height="26" rx="5" fill="#2F6B4F"/>
+  <rect x="240" y="404" width="196" height="26" rx="5" fill="#2F6B4F"/>
+  <rect x="436" y="404" width="204" height="26" rx="5" fill="#2F6B4F"/>
+  <rect x="640" y="404" width="220" height="26" rx="5" fill="#2F6B4F"/>
+  <text x="750" y="421" font-size="10.5" fill="#FFFFFF" text-anchor="middle">projected, quantile matrix, subsampled</text>
+  <circle cx="884" cy="417" r="13" fill="#2F6B4F"/>
+  <text x="884" y="422" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">&#10003;</text>
+  <text x="120" y="446" font-size="11.5" font-weight="700" fill="#2F6B4F">Completes in about half an hour. Peak memory ~135 GB &#8594; ~38 GB. Histogram memory per tree ~75 GB &#8594; ~150 MB.</text>
+
+  <!-- the heuristic -->
+  <rect x="40" y="478" width="880" height="66" rx="10" fill="#22252A"/>
+  <text x="480" y="506" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">A crash that moves later is progress and a diagnostic.</text>
+  <text x="480" y="528" font-size="12.5" fill="#F0C86A" text-anchor="middle">A crash that stays put means you fixed something that was not the problem.</text>
+
+  <!-- footnote -->
+  <rect x="40" y="558" width="430" height="64" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.3"/>
+  <text x="58" y="580" font-size="12" font-weight="700" fill="#22252A">Found by reading code, not tooling</text>
+  <text x="58" y="599" font-size="11" fill="#4A5568">Runs 1 to 3. No profiler will tell you an allocation is</text>
+  <text x="58" y="614" font-size="11" fill="#4A5568">pointless. Only a human asking what a line is for.</text>
+
+  <rect x="490" y="558" width="430" height="64" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.3"/>
+  <text x="508" y="580" font-size="12" font-weight="700" fill="#22252A">Found by arithmetic, not tooling</text>
+  <text x="508" y="599" font-size="11" fill="#4A5568">Run 4. Four multiplications from the algorithm's docs</text>
+  <text x="508" y="614" font-size="11" fill="#4A5568">predicted it exactly, after two days spent on profiling.</text>
+</svg>
