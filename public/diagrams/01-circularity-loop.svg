@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A5568"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B4485A"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="600" fill="#FAFAF9"/>
+
+  <text x="40" y="46" font-size="23" font-weight="600" fill="#22252A">The circularity trap</text>
+  <text x="40" y="72" font-size="14.5" fill="#6B7280">We wrote the answer key, handed it to the student, then graded the student against it.</text>
+
+  <!-- Row 1 -->
+  <g>
+    <rect x="30" y="118" width="146" height="74" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+    <text x="103" y="147" font-size="13.5" font-weight="600" fill="#22252A" text-anchor="middle">Domain</text>
+    <text x="103" y="165" font-size="13.5" font-weight="600" fill="#22252A" text-anchor="middle">interviews</text>
+    <text x="103" y="182" font-size="11" fill="#8A8F98" text-anchor="middle">what practitioners said</text>
+  </g>
+
+  <line x1="182" y1="155" x2="204" y2="155" stroke="#4A5568" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="212" y="118" width="196" height="74" rx="9" fill="#EEF3F8" stroke="#3B6EA5" stroke-width="1.6"/>
+    <text x="310" y="146" font-size="13.5" font-weight="600" fill="#1F3F63" text-anchor="middle">Rule cascade</text>
+    <text x="310" y="164" font-size="11.5" fill="#3B6EA5" text-anchor="middle">deterministic,</text>
+    <text x="310" y="180" font-size="11.5" fill="#3B6EA5" text-anchor="middle">non-conflicting</text>
+  </g>
+
+  <line x1="414" y1="155" x2="436" y2="155" stroke="#4A5568" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="444" y="118" width="140" height="74" rx="9" fill="#EEF3F8" stroke="#3B6EA5" stroke-width="1.6"/>
+    <text x="514" y="152" font-size="13.5" font-weight="600" fill="#1F3F63" text-anchor="middle">Training</text>
+    <text x="514" y="170" font-size="13.5" font-weight="600" fill="#1F3F63" text-anchor="middle">labels</text>
+  </g>
+
+  <line x1="590" y1="155" x2="612" y2="155" stroke="#4A5568" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="620" y="118" width="150" height="74" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+    <text x="695" y="147" font-size="13.5" font-weight="600" fill="#22252A" text-anchor="middle">Supervised</text>
+    <text x="695" y="165" font-size="13.5" font-weight="600" fill="#22252A" text-anchor="middle">training</text>
+    <text x="695" y="182" font-size="11" fill="#8A8F98" text-anchor="middle">~100 boosted trees</text>
+  </g>
+
+  <line x1="776" y1="155" x2="798" y2="155" stroke="#4A5568" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="806" y="118" width="122" height="74" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+    <text x="867" y="152" font-size="13.5" font-weight="600" fill="#22252A" text-anchor="middle">Model</text>
+    <text x="867" y="172" font-size="11" fill="#8A8F98" text-anchor="middle">ships</text>
+  </g>
+
+  <!-- down from model -->
+  <path d="M 867 196 L 867 250 L 700 250 L 700 282" fill="none" stroke="#4A5568" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Eval box -->
+  <g>
+    <rect x="212" y="288" width="558" height="70" rx="9" fill="#FDF2F4" stroke="#B4485A" stroke-width="1.6"/>
+    <text x="491" y="317" font-size="13.5" font-weight="600" fill="#8C2F40" text-anchor="middle">Evaluate on a held-out slice of the same labels</text>
+    <text x="491" y="337" font-size="11.5" fill="#B4485A" text-anchor="middle">area under ROC curve ≈ 0.99</text>
+  </g>
+
+  <!-- return arrow closing the loop -->
+  <path d="M 212 323 L 190 323 L 190 234 L 310 234 L 310 198" fill="none" stroke="#B4485A" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arrowRed)"/>
+  <text x="322" y="230" font-size="11.5" font-weight="600" fill="#B4485A">labels and evaluation share one source</text>
+
+  <!-- punchline -->
+  <g>
+    <rect x="30" y="404" width="898" height="60" rx="9" fill="#22252A"/>
+    <text x="479" y="431" font-size="14.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">A model that reproduces its labelling function is not a model.</text>
+    <text x="479" y="451" font-size="14.5" font-weight="600" fill="#F0C86A" text-anchor="middle">It is a compression of the labelling function.</text>
+  </g>
+
+  <!-- what the loop cannot see -->
+  <g>
+    <rect x="30" y="486" width="440" height="86" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+    <text x="48" y="510" font-size="12.5" font-weight="600" fill="#22252A">What the loop cannot see</text>
+    <text x="48" y="531" font-size="11.5" fill="#4A5568">Anything the cascade cannot express is absent from the labels,</text>
+    <text x="48" y="548" font-size="11.5" fill="#4A5568">absent from the evaluation, and therefore reported as zero error.</text>
+    <text x="48" y="565" font-size="11.5" font-style="italic" fill="#8A8F98">The absence of error is the symptom.</text>
+  </g>
+
+  <g>
+    <rect x="488" y="486" width="440" height="86" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+    <text x="506" y="510" font-size="12.5" font-weight="600" fill="#22252A">The concrete failure</text>
+    <text x="506" y="531" font-size="11.5" fill="#4A5568">The noise branch required priority ≥ 3. So high-priority recurring</text>
+    <text x="506" y="548" font-size="11.5" fill="#4A5568">noise never appeared as noise in training, never appeared in the</text>
+    <text x="506" y="565" font-size="11.5" fill="#4A5568">evaluation, and starved the safety calibration set as well.</text>
+  </g>
+</svg>
