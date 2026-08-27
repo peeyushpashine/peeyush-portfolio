@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" width="960" height="660" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="d1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7A5A15"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="660" fill="#FAFAF9"/>
+
+  <text x="40" y="46" font-size="23" font-weight="600" fill="#22252A">The chart where nothing happened</text>
+  <text x="40" y="72" font-size="14.5" fill="#6B7280">One deploy. Two panels moved in opposite directions. Neither delta was real.</text>
+  <text x="40" y="92" font-size="12" font-style="italic" fill="#8A8F98">Illustrative proportions. The mechanism is exact.</text>
+
+  <!-- BEFORE -->
+  <text x="40" y="132" font-size="12.5" font-weight="700" fill="#4A5568">BEFORE the categoriser fix</text>
+  <rect x="40" y="142" width="140" height="46" fill="#3B6EA5"/>
+  <text x="110" y="164" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">success</text>
+  <text x="110" y="180" font-size="11" fill="#D5E3F0" text-anchor="middle">20</text>
+
+  <rect x="180" y="142" width="385" height="46" fill="#B4485A"/>
+  <text x="372" y="164" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">counted as LOAD ERROR</text>
+  <text x="372" y="180" font-size="10.5" fill="#F6DDE2" text-anchor="middle">55 &#183; "artifact chunks missing", filed under network / unknown</text>
+
+  <rect x="565" y="142" width="175" height="46" fill="#7A8C3F"/>
+  <text x="652" y="164" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">MODEL MISSING</text>
+  <text x="652" y="180" font-size="11" fill="#E6EBD4" text-anchor="middle">25</text>
+
+  <!-- the move -->
+  <path d="M 372 196 L 372 224 L 640 224 L 640 248" fill="none" stroke="#7A5A15" stroke-width="2.2" marker-end="url(#d1)"/>
+  <rect x="270" y="204" width="230" height="20" rx="10" fill="#FFFCF2" stroke="#D9B25E" stroke-width="1.2"/>
+  <text x="385" y="218" font-size="11" font-weight="700" fill="#7A5A15" text-anchor="middle">relabelled. nothing else changed.</text>
+
+  <!-- AFTER -->
+  <text x="40" y="272" font-size="12.5" font-weight="700" fill="#4A5568">AFTER the categoriser fix</text>
+  <rect x="40" y="282" width="140" height="46" fill="#3B6EA5"/>
+  <text x="110" y="304" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">success</text>
+  <text x="110" y="320" font-size="11" fill="#D5E3F0" text-anchor="middle">20 &#183; identical</text>
+
+  <rect x="180" y="282" width="22" height="46" fill="#B4485A"/>
+  <text x="191" y="308" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+
+  <rect x="202" y="282" width="538" height="46" fill="#7A8C3F"/>
+  <text x="471" y="304" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">MODEL MISSING</text>
+  <text x="471" y="320" font-size="11" fill="#E6EBD4" text-anchor="middle">77 &#183; the same events, finally in the right bucket</text>
+
+  <!-- metric cards -->
+  <rect x="40" y="360" width="280" height="126" rx="10" fill="#FDF2F4" stroke="#B4485A" stroke-width="1.6"/>
+  <text x="58" y="384" font-size="12.5" font-weight="700" fill="#8C2F40">Availability panel</text>
+  <text x="58" y="404" font-size="11.5" font-family="ui-monospace, Menlo, monospace" fill="#4A5568">success / (success + missing)</text>
+  <text x="58" y="432" font-size="16" font-weight="700" fill="#4A5568">44.4%</text>
+  <text x="128" y="432" font-size="15" fill="#8A8F98">&#8594;</text>
+  <text x="152" y="432" font-size="16" font-weight="700" fill="#B4485A">20.6%</text>
+  <text x="58" y="456" font-size="12" font-weight="700" fill="#B4485A">A big drop. Not real.</text>
+  <text x="58" y="473" font-size="11" fill="#8C2F40">The mass entered this denominator.</text>
+
+  <rect x="340" y="360" width="280" height="126" rx="10" fill="#F1F7F3" stroke="#2F6B4F" stroke-width="1.6"/>
+  <text x="358" y="384" font-size="12.5" font-weight="700" fill="#1F4A37">Reliability panel</text>
+  <text x="358" y="404" font-size="11.5" font-family="ui-monospace, Menlo, monospace" fill="#4A5568">success / (success + load errors)</text>
+  <text x="358" y="432" font-size="16" font-weight="700" fill="#4A5568">26.7%</text>
+  <text x="428" y="432" font-size="15" fill="#8A8F98">&#8594;</text>
+  <text x="452" y="432" font-size="16" font-weight="700" fill="#2F6B4F">87.0%</text>
+  <text x="358" y="456" font-size="12" font-weight="700" fill="#2F6B4F">A huge jump. Also not real.</text>
+  <text x="358" y="473" font-size="11" fill="#2F6B4F">The mass left this denominator.</text>
+
+  <rect x="640" y="360" width="280" height="126" rx="10" fill="#22252A"/>
+  <text x="658" y="384" font-size="12.5" font-weight="700" fill="#F0C86A">Success rate &#183; lead with this</text>
+  <text x="658" y="404" font-size="11.5" font-family="ui-monospace, Menlo, monospace" fill="#C9CDD4">success / all attempts</text>
+  <text x="658" y="432" font-size="16" font-weight="700" fill="#FFFFFF">20%</text>
+  <text x="708" y="432" font-size="15" fill="#8A8F98">&#8594;</text>
+  <text x="732" y="432" font-size="16" font-weight="700" fill="#FFFFFF">20%</text>
+  <text x="658" y="456" font-size="12" font-weight="700" fill="#8FD3AC">Flat, by construction.</text>
+  <text x="658" y="473" font-size="11" fill="#C9CDD4">Relabelling cannot move it.</text>
+
+  <!-- rule -->
+  <rect x="40" y="506" width="880" height="58" rx="10" fill="#EEF3F8" stroke="#3B6EA5" stroke-width="1.6"/>
+  <text x="480" y="532" font-size="15" font-weight="700" fill="#1F3F63" text-anchor="middle">When you fix an instrument, publish a re-baseline, not a delta.</text>
+  <text x="480" y="553" font-size="12.5" fill="#3B6EA5" text-anchor="middle">Any rate whose denominator is built from categories is discontinuous at the moment you change the categorisation.</text>
+
+  <!-- three habits -->
+  <rect x="40" y="578" width="280" height="66" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.3"/>
+  <text x="58" y="600" font-size="12" font-weight="700" fill="#22252A">1. Lead with the invariant</text>
+  <text x="58" y="619" font-size="11" fill="#4A5568">Successes over all attempts. Ours moved</text>
+  <text x="58" y="634" font-size="11" fill="#4A5568">17% &#8594; 22%. Five real points.</text>
+
+  <rect x="340" y="578" width="280" height="66" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.3"/>
+  <text x="358" y="600" font-size="12" font-weight="700" fill="#22252A">2. Permanent marker on the chart</text>
+  <text x="358" y="619" font-size="11" fill="#4A5568">"Methodology changed here. Do not</text>
+  <text x="358" y="634" font-size="11" fill="#4A5568">compare across this line."</text>
+
+  <rect x="640" y="578" width="280" height="66" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.3"/>
+  <text x="658" y="600" font-size="12" font-weight="700" fill="#22252A">3. Say which deltas are not real</text>
+  <text x="658" y="619" font-size="11" fill="#4A5568">In those words, in the write-up, even</text>
+  <text x="658" y="634" font-size="11" fill="#4A5568">when it costs you the headline.</text>
+</svg>

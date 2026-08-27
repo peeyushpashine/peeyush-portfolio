@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="960" height="640" fill="#FAFAF9"/>
+
+  <text x="40" y="46" font-size="23" font-weight="600" fill="#22252A">Four outcomes. One of them is an incident.</text>
+  <text x="40" y="72" font-size="14.5" fill="#6B7280">Averaging these into a single accuracy number averages an annoyance into an outage.</text>
+
+  <!-- column headers -->
+  <text x="370" y="118" font-size="13" font-weight="700" fill="#4A5568" text-anchor="middle">ACTUALLY A SIGNAL</text>
+  <text x="710" y="118" font-size="13" font-weight="700" fill="#4A5568" text-anchor="middle">ACTUALLY NOISE</text>
+
+  <!-- row 1: shown -->
+  <text x="40" y="176" font-size="13" font-weight="700" fill="#4A5568">WE SHOW IT</text>
+  <text x="40" y="194" font-size="11.5" fill="#8A8F98">predicted signal</text>
+
+  <rect x="200" y="130" width="336" height="106" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+  <text x="218" y="158" font-size="13.5" font-weight="700" fill="#22252A">True positive</text>
+  <text x="218" y="180" font-size="12" fill="#4A5568">Real signal, kept loud. Correct, and invisible,</text>
+  <text x="218" y="197" font-size="12" fill="#4A5568">which is what correct looks like here.</text>
+  <text x="218" y="221" font-size="11.5" font-weight="600" fill="#8A8F98">Cost: none</text>
+
+  <rect x="544" y="130" width="336" height="106" rx="9" fill="#FFFCF2" stroke="#D9B25E" stroke-width="1.5"/>
+  <text x="562" y="158" font-size="13.5" font-weight="700" fill="#7A5A15">False positive</text>
+  <text x="562" y="180" font-size="12" fill="#6B5220">Noise shown anyway. Annoying. Costs attention.</text>
+  <text x="562" y="197" font-size="12" fill="#6B5220">Erodes trust slowly. Tolerable.</text>
+  <text x="562" y="221" font-size="11.5" font-weight="600" fill="#9C7A2E">Cost: minutes</text>
+
+  <!-- row 2: quieted -->
+  <text x="40" y="296" font-size="13" font-weight="700" fill="#4A5568">WE QUIET IT</text>
+  <text x="40" y="314" font-size="11.5" fill="#8A8F98">predicted noise</text>
+
+  <rect x="200" y="250" width="336" height="106" rx="9" fill="#FDF2F4" stroke="#B4485A" stroke-width="2.4"/>
+  <text x="218" y="278" font-size="13.5" font-weight="700" fill="#8C2F40">False negative &#183; the missed signal</text>
+  <text x="218" y="300" font-size="12" fill="#8C2F40">A real signal, silenced. The only incident-grade</text>
+  <text x="218" y="317" font-size="12" fill="#8C2F40">error in the system. A smoke alarm switched off.</text>
+  <text x="218" y="341" font-size="11.5" font-weight="700" fill="#B4485A">Cost: an outage. This is the protected metric.</text>
+
+  <rect x="544" y="250" width="336" height="106" rx="9" fill="#F1F7F3" stroke="#2F6B4F" stroke-width="2"/>
+  <text x="562" y="278" font-size="13.5" font-weight="700" fill="#1F4A37">True negative &#183; the product</text>
+  <text x="562" y="300" font-size="12" fill="#2F6B4F">Real noise, correctly quieted. Every one of these</text>
+  <text x="562" y="317" font-size="12" fill="#2F6B4F">is an interruption that never happened.</text>
+  <text x="562" y="341" font-size="11.5" font-weight="700" fill="#2F6B4F">Value created. Maximise, under the gate.</text>
+
+  <!-- row 3: abstain -->
+  <text x="40" y="404" font-size="13" font-weight="700" fill="#4A5568">WE ABSTAIN</text>
+  <text x="40" y="422" font-size="11.5" fill="#8A8F98">"not sure"</text>
+
+  <rect x="200" y="370" width="680" height="76" rx="9" fill="#F4F5F7" stroke="#9AA5B1" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="218" y="396" font-size="13.5" font-weight="700" fill="#3B4451">Abstention is a safety valve, not a failure</text>
+  <text x="218" y="418" font-size="12" fill="#4A5568">The item is shown with no opinion, so an abstention <tspan font-weight="700">cannot produce a missed signal</tspan>. Shrink the</text>
+  <text x="218" y="435" font-size="12" fill="#4A5568">abstain band and some of what leaves it becomes a miss. The dashboard improves; the system gets worse.</text>
+
+  <!-- objective -->
+  <rect x="40" y="472" width="880" height="66" rx="10" fill="#22252A"/>
+  <text x="480" y="500" font-size="14" fill="#C9CDD4" text-anchor="middle">This is not a classification problem. It is a constrained optimisation:</text>
+  <text x="480" y="524" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">maximise correctly-quieted noise, subject to missed signals &#8804; a per-priority budget.</text>
+
+  <!-- metric split -->
+  <rect x="40" y="554" width="430" height="66" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+  <text x="58" y="578" font-size="12.5" font-weight="700" fill="#22252A">Report four numbers, never one</text>
+  <text x="58" y="598" font-size="11.5" fill="#4A5568">missed-signal rate (gated) &#183; correctly-quieted rate</text>
+  <text x="58" y="614" font-size="11.5" fill="#4A5568">correction rate &#183; accept rate</text>
+
+  <rect x="490" y="554" width="430" height="66" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+  <text x="508" y="578" font-size="12.5" font-weight="700" fill="#22252A">Why accept and correction rate are separate</text>
+  <text x="508" y="598" font-size="11.5" fill="#4A5568">A better explanation raises accept rate without making the</text>
+  <text x="508" y="614" font-size="11.5" fill="#4A5568">model one bit more correct. Blend them and you will book it.</text>
+</svg>

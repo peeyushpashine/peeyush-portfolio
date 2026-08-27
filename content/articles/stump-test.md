@@ -2,6 +2,7 @@
 title: "Your Model Scored 0.99. That Might Be a Confession."
 standfirst: "Two reproducible tests for the failure where a model has learned your labelling rule instead of the world."
 date: "2026-08-31"
+draft: true
 ---
 
 There is a moment in most machine learning projects where a number comes back much better
@@ -24,7 +25,7 @@ linked at the end. Nothing in this post is a measurement of any system I have wo
 
 ---
 
-## The shape of the problem
+## 1. There is no answer key
 
 Some problems arrive with labels. Most interesting ones do not.
 
@@ -70,7 +71,7 @@ the question of whether your labels are any good.
 
 ---
 
-## Test one: the stump
+## 2. A ten-leaf tree should not keep up with you
 
 The tell is not the score. Plenty of legitimate problems score 0.99.
 
@@ -123,7 +124,7 @@ genuinely simple problems are genuinely simple.
 
 ---
 
-## Test two: the gate trap
+## 3. The gate that makes a pattern unlearnable
 
 The stump test catches thin labels. This one catches something worse, and it is the finding I
 would most want to hand to someone starting out.
@@ -181,7 +182,7 @@ you needed it, because the labels that would have populated it were never genera
 
 ---
 
-## What to do instead
+## 4. Move the safety out of the label
 
 The fix, once named, is not dramatic.
 
@@ -204,7 +205,7 @@ question.
 
 ---
 
-## The reusable version
+## 5. What I would tell somebody starting this
 
 If you take one thing:
 
@@ -215,7 +216,7 @@ And two checks you can run this week, in ascending cost. Fit a ten-leaf tree nex
 model and compare the lift. Then list every feature your labelling rules touch and check
 whether the model sees it too.
 
-Both scripts are on GitHub: [`stump_test.py`](https://github.com/peeyushpashine/peeyush-portfolio/blob/main/code/stump-test/stump_test.py) and [`gate_trap.py`](https://github.com/peeyushpashine/peeyush-portfolio/blob/main/code/stump-test/gate_trap.py). They need only
+Both scripts are on GitHub: [`stump_test.py`](https://github.com/peeyushpashine/peeyush-portfolio/blob/main/code/stump_test.py) and [`gate_trap.py`](https://github.com/peeyushpashine/peeyush-portfolio/blob/main/code/gate_trap.py). They need only
 scikit-learn and they run in about a minute. If the diagnostic fires on something you own, I
 would genuinely like to hear what you found.
 

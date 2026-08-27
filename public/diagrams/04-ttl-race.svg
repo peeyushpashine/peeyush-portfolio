@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#FDF2F4"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#B4485A" stroke-width="3"/>
+    </pattern>
+    <marker id="t1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A5568"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="580" fill="#FAFAF9"/>
+
+  <text x="40" y="46" font-size="23" font-weight="600" fill="#22252A">Three reasonable timers that could not all be satisfied</text>
+  <text x="40" y="72" font-size="14.5" fill="#6B7280">Retention 30 days. Retrain interval 15 days. Queue latency 20 days. Nobody chose the combination.</text>
+
+  <!-- BEFORE -->
+  <text x="40" y="112" font-size="12.5" font-weight="700" fill="#8C2F40">BEFORE &#183; every tenant goes dark, every cycle, by construction</text>
+
+  <!-- artifact validity bar -->
+  <text x="40" y="146" font-size="11.5" fill="#4A5568">artifact valid</text>
+  <rect x="180" y="132" width="465" height="26" rx="4" fill="#DFEDE5" stroke="#2F6B4F" stroke-width="1.4"/>
+  <text x="412" y="150" font-size="11.5" font-weight="600" fill="#1F4A37" text-anchor="middle">30-day retention</text>
+  <rect x="645" y="132" width="155" height="26" rx="4" fill="url(#hatch)" stroke="#B4485A" stroke-width="1.6"/>
+  <text x="722" y="150" font-size="11" font-weight="700" fill="#8C2F40" text-anchor="middle">NO MODEL</text>
+  <rect x="800" y="132" width="120" height="26" rx="4" fill="#DFEDE5" stroke="#2F6B4F" stroke-width="1.4"/>
+  <text x="860" y="150" font-size="11" font-weight="600" fill="#1F4A37" text-anchor="middle">new artifact</text>
+
+  <!-- schedule bar -->
+  <text x="40" y="188" font-size="11.5" fill="#4A5568">next job</text>
+  <line x1="180" y1="176" x2="412" y2="176" stroke="#C9CDD4" stroke-width="1.4" stroke-dasharray="4 4"/>
+  <circle cx="412" cy="176" r="5" fill="#3B6EA5"/>
+  <rect x="412" y="168" width="388" height="16" rx="4" fill="#EEF3F8" stroke="#3B6EA5" stroke-width="1.3"/>
+  <text x="606" y="180" font-size="10.5" font-weight="600" fill="#1F3F63" text-anchor="middle">waiting in the FIFO queue &#183; ~20 days</text>
+  <circle cx="800" cy="176" r="5" fill="#2F6B4F"/>
+
+  <!-- axis -->
+  <line x1="180" y1="204" x2="920" y2="204" stroke="#C9CDD4" stroke-width="1.4"/>
+  <g font-size="10.5" fill="#8A8F98" text-anchor="middle">
+    <line x1="180" y1="200" x2="180" y2="208" stroke="#8A8F98"/><text x="180" y="222">day 0</text>
+    <line x1="412" y1="200" x2="412" y2="208" stroke="#8A8F98"/><text x="412" y="222">day 15</text>
+    <line x1="645" y1="200" x2="645" y2="208" stroke="#8A8F98"/><text x="645" y="222">day 30</text>
+    <line x1="800" y1="200" x2="800" y2="208" stroke="#8A8F98"/><text x="800" y="222">day 35</text>
+  </g>
+  <text x="180" y="240" font-size="10.5" fill="#6B7280">training completes</text>
+  <text x="645" y="240" font-size="10.5" font-weight="700" fill="#B4485A" text-anchor="middle">artifact expires</text>
+  <text x="800" y="240" font-size="10.5" fill="#6B7280" text-anchor="middle">retrained</text>
+
+  <text x="722" y="264" font-size="12" font-weight="700" fill="#8C2F40" text-anchor="middle">a guaranteed 5-day dark window</text>
+
+  <!-- AFTER -->
+  <text x="40" y="308" font-size="12.5" font-weight="700" fill="#2F6B4F">AFTER &#183; retention raised to 90 days</text>
+
+  <text x="40" y="342" font-size="11.5" fill="#4A5568">artifact valid</text>
+  <rect x="180" y="328" width="740" height="26" rx="4" fill="#DFEDE5" stroke="#2F6B4F" stroke-width="1.4"/>
+  <text x="550" y="346" font-size="11.5" font-weight="600" fill="#1F4A37" text-anchor="middle">90-day retention, extends well past the right edge</text>
+
+  <text x="40" y="382" font-size="11.5" fill="#4A5568">next job</text>
+  <line x1="180" y1="370" x2="412" y2="370" stroke="#C9CDD4" stroke-width="1.4" stroke-dasharray="4 4"/>
+  <circle cx="412" cy="370" r="5" fill="#3B6EA5"/>
+  <rect x="412" y="362" width="388" height="16" rx="4" fill="#EEF3F8" stroke="#3B6EA5" stroke-width="1.3"/>
+  <text x="606" y="374" font-size="10.5" font-weight="600" fill="#1F3F63" text-anchor="middle">same 20-day queue wait</text>
+  <circle cx="800" cy="370" r="5" fill="#2F6B4F"/>
+  <text x="606" y="396" font-size="11.5" font-weight="700" fill="#2F6B4F" text-anchor="middle">retrained on day 35, with 55 days of headroom left. No dark window.</text>
+
+  <!-- invariant -->
+  <rect x="40" y="410" width="880" height="70" rx="10" fill="#22252A"/>
+  <text x="480" y="438" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">retention &gt; queue latency + retrain interval, with margin</text>
+  <text x="480" y="462" font-size="12.5" font-family="ui-monospace, Menlo, monospace" fill="#F0C86A" text-anchor="middle">page when (backlog_days + retrain_interval_days) / retention_days &gt; 0.8</text>
+
+  <rect x="40" y="494" width="880" height="66" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
+  <text x="58" y="518" font-size="12.5" font-weight="700" fill="#22252A">The reason no monitor caught it</text>
+  <text x="58" y="538" font-size="12" fill="#4A5568">Each timer had an owner and a sensible justification. The <tspan font-style="italic">relationship between them</tspan> had no owner, no dashboard, and no</text>
+  <text x="58" y="554" font-size="12" fill="#4A5568">alert. It was found by hand, by multiplying. Monitor the inequality, not the timers.</text>
+</svg>
