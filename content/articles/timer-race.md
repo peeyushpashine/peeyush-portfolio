@@ -1,8 +1,7 @@
 ---
 title: "Three Timers, Three Owners, and a Gap Nobody Designed"
 standfirst: "Per-tenant ML puts you in a queueing problem before it puts you in a modelling one."
-date: "2026-10-05"
-draft: true
+date: "2026-10-08"
 ---
 
 One model per customer is an appealing idea and it is often the right one. Behaviour varies so

@@ -1,8 +1,7 @@
 ---
 title: "Accuracy Is the Wrong Target When One Mistake Wakes Somebody at 3 a.m."
 standfirst: "Four outcomes, one of them incident-grade, and why shrinking the uncertain band makes the dashboard better and the system worse."
-date: "2026-09-28"
-draft: true
+date: "2026-10-01"
 ---
 
 A classifier with two classes has four outcomes, and treating them as equally costly is a

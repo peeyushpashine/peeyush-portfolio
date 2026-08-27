@@ -1,8 +1,7 @@
 ---
 title: "Your Model Scored 0.99. That Might Be a Confession."
 standfirst: "Two reproducible tests for the failure where a model has learned your labelling rule instead of the world."
-date: "2026-08-31"
-draft: true
+date: "2026-09-03"
 ---
 
 There is a moment in most machine learning projects where a number comes back much better

@@ -1,8 +1,7 @@
 ---
 title: "Four Safeguards, Each Reasonable, and the Feature Was Inert"
 standfirst: "Safety dampeners compose multiplicatively, and nobody multiplies them."
-date: "2026-09-14"
-draft: true
+date: "2026-09-17"
 ---
 
 We ran a clean experiment on a feedback mechanism and measured a real improvement. Ten points.

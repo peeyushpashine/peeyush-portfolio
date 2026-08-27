@@ -1,8 +1,7 @@
 ---
 title: "When Your Feature Works Best, the Data Disappears"
 standfirst: "A successfully prevented problem and a feature nobody uses produce the same evidence: nothing."
-date: "2026-09-21"
-draft: true
+date: "2026-09-24"
 ---
 
 Adoption looked healthy. Volume handled was climbing. The dashboard was green in every panel I

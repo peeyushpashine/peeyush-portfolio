@@ -1,8 +1,7 @@
 ---
 title: "The Chart Where Nothing Happened"
 standfirst: "Two panels moved in opposite directions on the same deploy. Neither delta was real."
-date: "2026-09-07"
-draft: true
+date: "2026-09-10"
 ---
 
 A team fixes fifteen lines of code in an error categoriser. On the day it deploys, two
