@@ -93,12 +93,12 @@ structure changes:
 ```
  features in label   full AUC   stump AUC   lift recovered
                  1     1.0000      0.9997           99.9%
-                 2     0.9993      0.9703           94.2%
-                 3     0.9984      0.9688           94.1%
-                 5     0.9898      0.8358           68.6%
-                10     0.9808      0.8645           75.8%
-                20     0.9635      0.7266           48.9%
-                30     0.9515      0.7080           46.1%
+                 2     0.9994      0.9703           94.2%
+                 3     0.9983      0.9688           94.1%
+                 5     0.9898      0.8358           68.5%
+                10     0.9806      0.8645           75.8%
+                20     0.9643      0.7266           48.8%
+                30     0.9506      0.7080           46.2%
 ```
 
 Look at the first column. The full model scores between 0.95 and 1.00 the whole way down. If
@@ -110,10 +110,10 @@ two different label sources attached to them:
 
 ```
 diagnostic label, assigned outside the feature set
-  full 0.9907   stump 0.9164   lift recovered 84.9%
+  full 0.9925   stump 0.9164   lift recovered 84.6%
 
 label written as a three-feature rule
-  full 0.9991   stump 0.9885   lift recovered 97.9%
+  full 0.9989   stump 0.9885   lift recovered 97.9%
 ```
 
 Same features. Same model. The only difference is where the label came from.
@@ -160,7 +160,7 @@ GRADED AGAINST THE RULE LABELS (what your dashboard shows)
   high-priority noise cases in the test set    0   (none, so none can be failed)
 
 GRADED AGAINST THE TRUTH (what is actually happening)
-  AUC                                          0.6615
+  AUC                                          0.5833
   recall on noise, low priority                0.4203
   recall on noise, HIGH priority               0.0000
 ```

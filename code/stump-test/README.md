@@ -13,8 +13,12 @@ your labels, rather than anything about the world. They accompany
 Both run on public and synthetic data with a fixed seed, need only scikit-learn, and take
 about a minute.
 
+Figures in the post were measured on scikit-learn 1.9.0. The stump is a
+`DecisionTreeClassifier` and is version-stable; the full model is a
+`HistGradientBoostingClassifier`, whose AUC moves slightly between releases.
+
 ```bash
-pip install scikit-learn
+pip install 'scikit-learn==1.9.0'
 python stump_test.py
 python gate_trap.py
 ```

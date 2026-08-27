@@ -87,9 +87,9 @@
 
   <g>
     <rect x="488" y="486" width="440" height="86" rx="9" fill="#FFFFFF" stroke="#D6D3CE" stroke-width="1.4"/>
-    <text x="506" y="510" font-size="12.5" font-weight="600" fill="#22252A">The concrete failure</text>
-    <text x="506" y="531" font-size="11.5" fill="#4A5568">The noise branch required priority ≥ 3. So high-priority recurring</text>
-    <text x="506" y="548" font-size="11.5" fill="#4A5568">noise never appeared as noise in training, never appeared in the</text>
-    <text x="506" y="565" font-size="11.5" fill="#4A5568">evaluation, and starved the safety calibration set as well.</text>
+    <text x="506" y="510" font-size="12.5" font-weight="600" fill="#22252A">The failure this produces</text>
+    <text x="506" y="531" font-size="11.5" fill="#4A5568">A gate on priority means high-priority items that recur can</text>
+    <text x="506" y="548" font-size="11.5" fill="#4A5568">never be labelled non-actionable, so they are absent from</text>
+    <text x="506" y="565" font-size="11.5" fill="#4A5568">training, absent from the exam, and absent from calibration.</text>
   </g>
 </svg>
