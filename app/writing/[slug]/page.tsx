@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getArticle, getArticles, formatDate } from "@/lib/articles";
 import { person } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
+import Comments from "@/components/Comments";
 
 export function generateStaticParams() {
   return getArticles().map((a) => ({ slug: a.slug }));
@@ -91,6 +92,7 @@ export default async function ArticlePage({
             </a>
           </p>
         )}
+        <Comments />
       </article>
     </div>
   );

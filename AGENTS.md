@@ -115,6 +115,17 @@ Do not add these without asking:
   senior engineer's site is worse than no link.
 - **Metrics that sound impressive but are unverifiable.**
 
+## Comments
+
+Giscus, backed by GitHub Discussions on this repo (`components/Comments.tsx`,
+configured in `lib/site.ts`). The only third party embed on the site. It was
+chosen because it adds no backend, no database and no moderation tooling: GitHub
+owns identity, spam and blocking.
+
+Claps were considered and rejected for now, on the same reasoning as the sparse
+GitHub link below: a counter reading 2 is worse than no counter. Giscus reactions
+give the same affordance without putting a number on the page.
+
 ## Deploy
 
 Push to `main`. Vercel builds and deploys automatically. No environment
