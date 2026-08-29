@@ -16,5 +16,5 @@ export const GISCUS = {
   repo: "peeyushpashine/peeyush-portfolio",
   repoId: "R_kgDOUAhwGg",
   category: "Announcements",
-  categoryId: "",
+  categoryId: "DIC_kwDOUAhwGs4DEa43",
 };
